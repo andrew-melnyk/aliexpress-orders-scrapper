@@ -4,3 +4,4 @@ web-ext-artifacts/
 *.log
 .vscode/
 dist/ 
+store-assets/
