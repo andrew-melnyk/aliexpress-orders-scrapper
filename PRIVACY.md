@@ -23,8 +23,8 @@ The extension only processes the following data when you explicitly initiate an 
 
 - All data processing occurs locally in your browser
 - Data is only processed when you click the export button
-- The processed data is immediately converted to CSV format
-- The CSV file is saved directly to your computer
+- The processed data is immediately converted to XLSX or CSV format
+- The XLSX/CSV file is saved directly to your computer
 - No data is stored within the extension
 - No data is transmitted to any external servers
 
@@ -59,4 +59,4 @@ If you have any questions about this Privacy Policy, please create an issue in o
 
 ## Consent
 
-By installing and using this extension, you consent to this privacy policy. 
+By installing and using this extension, you consent to this privacy policy.

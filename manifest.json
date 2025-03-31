@@ -2,9 +2,9 @@
   "manifest_version": 3,
   "name": "AliExpress Order Exporter",
   "version": "1.0.0",
-  "description": "Easily export your AliExpress orders to CSV format for better order management and record keeping. One-click export of order details, shipping information, and more.",
-  "author": "Your Name",
-  "homepage_url": "https://github.com/yourusername/aliexpress-order-exporter",
+  "description": "Easily export your AliExpress orders to XLSX or CSV format for better order management and record keeping. One-click export of order details, shipping information, and more.",
+  "author": "Andrew Melnyk",
+  "homepage_url": "https://github.com/andrew-melnyk/aliexpress-order-exporter",
   "permissions": [
     "activeTab",
     "scripting",
