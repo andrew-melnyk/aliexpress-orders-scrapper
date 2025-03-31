@@ -1,5 +1,5 @@
-const fs = require('fs');
-const { createCanvas } = require('canvas');
+import fs from 'fs';
+import { createCanvas } from 'canvas';
 
 // Function to create an icon
 function createIcon(size) {
@@ -7,7 +7,7 @@ function createIcon(size) {
     const ctx = canvas.getContext('2d');
 
     // Set background
-    ctx.fillStyle = '#1a9cb7';  // Using the same blue as in popup.css
+    ctx.fillStyle = '#D3031C';  // AliExpress red
     ctx.fillRect(0, 0, size, size);
 
     // Set text properties
