@@ -1,13 +1,13 @@
 # AliExpress Order Exporter
 
-A Chrome extension that allows you to easily export your AliExpress orders to CSV format for better order management and record keeping.
+A Chrome extension that allows you to easily export your AliExpress orders to XLSX or CSV format for better order management and record keeping.
 
 ![Extension Icon](icons/icon128.png)
 
 ## Features
 
 - 🚀 One-click export of AliExpress orders
-- 📊 Export to CSV format
+- 📊 Export to XLSX/CSV format
 - 📦 Comprehensive order details including:
   - Order information
   - Product details
