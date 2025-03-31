@@ -75,11 +75,6 @@ This extension processes all data locally on your machine. No data is sent to ex
 ### Building
 
 - The extension uses vanilla JavaScript and doesn't require a build step
-- Icons can be regenerated using:
-
-  ```bash
-  node generate_icons.js
-  ```
 
 ### Project Structure
 
