@@ -32,16 +32,9 @@ A Chrome extension that allows you to easily export your AliExpress orders to XL
    git clone https://github.com/andrew-melnyk/aliexpress-order-exporter.git
    ```
 
-2. Install dependencies:
-
-   ```bash
-   npm install
-   ./download_deps.sh
-   ```
-
-3. Open Chrome and navigate to `chrome://extensions/`
-4. Enable "Developer mode" in the top right
-5. Click "Load unpacked" and select the extension directory
+2. Open Chrome and navigate to `chrome://extensions/`
+3. Enable "Developer mode" in the top right
+4. Click "Load unpacked" and select the extension directory
 
 ## Usage
 
@@ -65,12 +58,6 @@ This extension processes all data locally on your machine. No data is sent to ex
 ### Setup
 
 1. Clone the repository
-2. Install dependencies:
-
-   ```bash
-   npm install
-   ./download_deps.sh
-   ```
 
 ### Building
 
