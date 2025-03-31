@@ -1,0 +1,111 @@
+body {
+  width: 400px;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+  color: #333;
+}
+
+h1 {
+  font-size: 24px;
+  margin: 0 0 20px;
+  color: #333;
+  text-align: center;
+}
+
+h2 {
+  font-size: 16px;
+  margin: 0 0 10px;
+  color: #333;
+}
+
+.status-filters {
+  background: #f5f5f5;
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.status-filters label {
+  display: block;
+  margin: 8px 0;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.status-filters input[type="checkbox"] {
+  margin-right: 8px;
+  cursor: pointer;
+}
+
+.export-format {
+  background: #f5f5f5;
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.export-format select {
+  width: 100%;
+  padding: 8px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: white;
+  cursor: pointer;
+}
+
+.export-format select:hover {
+  border-color: #2c7da0;
+}
+
+.export-button {
+  display: block;
+  width: 100%;
+  padding: 12px;
+  font-size: 16px;
+  color: white;
+  background-color: #2c7da0;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-bottom: 20px;
+  transition: background-color 0.2s;
+}
+
+.export-button:hover {
+  background-color: #1a6985;
+}
+
+.export-button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.instructions {
+  background: #f9f9f9;
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.instructions ol {
+  margin: 0;
+  padding-left: 20px;
+}
+
+.instructions li {
+  margin: 8px 0;
+  font-size: 14px;
+  color: #666;
+}
+
+.error {
+  display: none;
+  color: #d93025;
+  font-size: 14px;
+  padding: 10px;
+  background-color: #fce8e6;
+  border-radius: 8px;
+  margin-top: 10px;
+  text-align: left;
+} 

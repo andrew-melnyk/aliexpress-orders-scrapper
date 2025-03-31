@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>AliExpress Order Exporter</title>
+  <link rel="stylesheet" type="text/css" href="popup.css">
+</head>
+<body>
+  <h1>AliExpress Order Exporter</h1>
+
+  <div class="status-filters">
+    <h2>Include orders with status:</h2>
+    <label>
+      <input type="checkbox" name="status" value="Awaiting delivery" checked>
+      Awaiting delivery
+    </label>
+    <label>
+      <input type="checkbox" name="status" value="Completed" checked>
+      Completed
+    </label>
+    <label>
+      <input type="checkbox" name="status" value="Canceled">
+      Canceled
+    </label>
+    <label>
+      <input type="checkbox" name="status" value="Expired">
+      Expired
+    </label>
+  </div>
+
+  <div class="export-format">
+    <h2>Export Format:</h2>
+    <select id="exportFormat">
+      <option value="xlsx">XLSX</option>
+      <option value="csv">CSV</option>
+    </select>
+  </div>
+
+  <button id="exportButton" class="export-button">Export Orders</button>
+
+  <div class="instructions">
+    <h2>Instructions:</h2>
+    <ol>
+      <li>Go to your AliExpress orders page</li>
+      <li>Click the "Export Orders" button</li>
+      <li>Wait while orders are being collected</li>
+      <li>CSV file will download automatically</li>
+    </ol>
+  </div>
+
+  <div id="error" class="error"></div>
+
+  <script src="popup.js"></script>
+</body>
+</html> 

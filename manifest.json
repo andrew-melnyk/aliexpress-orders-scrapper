@@ -1,0 +1,40 @@
+{
+  "manifest_version": 3,
+  "name": "AliExpress Order Exporter",
+  "version": "1.0.0",
+  "description": "Easily export your AliExpress orders to CSV format for better order management and record keeping. One-click export of order details, shipping information, and more.",
+  "author": "Your Name",
+  "homepage_url": "https://github.com/yourusername/aliexpress-order-exporter",
+  "permissions": [
+    "activeTab",
+    "scripting",
+    "downloads"
+  ],
+  "host_permissions": [
+    "https://*.aliexpress.com/*"
+  ],
+  "action": {
+    "default_popup": "popup/popup.html",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://*.aliexpress.com/p/order/*"],
+      "js": ["lib/papaparse.min.js", "lib/xlsx.mini.min.js", "content.js"]
+    }
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "minimum_chrome_version": "88",
+  "offline_enabled": true
+} 
