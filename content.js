@@ -2,13 +2,13 @@ class AliExpressOrderExporter {
   constructor() {
     this.orders = [];
     this.isCollecting = false;
-    this.selectedStatuses = ['Awaiting delivery', 'Completed']; // Default statuses
+    this.selectedStatuses = ['Awaiting delivery', 'Completed', 'To ship']; // Default statuses
   }
 
   setSelectedStatuses(statuses) {
     if (!Array.isArray(statuses) || statuses.length === 0) {
       console.warn('Invalid or empty statuses provided, using defaults');
-      this.selectedStatuses = ['Awaiting delivery', 'Completed'];
+      this.selectedStatuses = ['Awaiting delivery', 'Completed', 'To Ship'];
     } else {
       this.selectedStatuses = statuses;
     }
@@ -87,11 +87,11 @@ class AliExpressOrderExporter {
       const productTitle = productElement?.getAttribute('title') || productElement?.textContent?.trim() || '';
       const productLink = orderElement.querySelector('.order-item-content-info-name a')?.href || '';
       
-      // Extract price - try both old and new HTML structures
+      // Extract price - try both total and per item price HTML structures
       let currency = '';
       let amount = '';
-      
-      // Try to get price from content-info-number first (item price)
+
+      // Try to get price from content-info-number first
       const itemPriceContainer = orderElement.querySelector('.order-item-content-info-number');
       if (itemPriceContainer) {
         // Get all text content from spans inside this container
@@ -103,24 +103,32 @@ class AliExpressOrderExporter {
           .trim();
         
         // Handle format like "US $26.70x1" or similar variations
-        const match = priceText.match(/([A-Z]{2})\s*\$\s*([\d.]+)/);
+        const priceMatch = priceText.match(/([A-Z]{2})\s*\$\s*([\d.]+)/);
+        const quantityMatch = priceText.match(/x(\d+)/);
+        
+        if (priceMatch) {
+          currency = priceMatch[1];
+          const baseAmount = parseFloat(priceMatch[2]);
+          
+          // If we found a quantity multiplier, multiply the base amount
+          if (quantityMatch) {
+            const quantity = parseInt(quantityMatch[1], 10);
+            amount = (baseAmount * quantity).toFixed(2);
+          } else {
+            amount = baseAmount.toFixed(2);
+          }
+        }
+      }
+
+      // Try the total price if we couldn't get the item price
+      const totalPriceElement = orderElement.querySelector('.order-item-content-opt-price-total');
+      if (!amount && totalPriceElement) {
+        const priceText = totalPriceElement.textContent.trim();
+        // Handle format like "Total:US $1.99" or "US $1.99"
+        const match = priceText.match(/(?:Total:)?([A-Z]{2})\s*\$\s*([\d.]+)/);
         if (match) {
           currency = match[1];
           amount = match[2];
-        }
-      }
-      
-      // Only if we couldn't get the item price, try the total price as fallback
-      if (!currency || !amount) {
-        const totalPriceElement = orderElement.querySelector('.order-item-content-opt-price-total');
-        if (totalPriceElement) {
-          const priceText = totalPriceElement.textContent.trim();
-          // Handle format like "Total:US $1.99" or "US $1.99"
-          const match = priceText.match(/(?:Total:)?([A-Z]{2})\s*\$\s*([\d.]+)/);
-          if (match) {
-            currency = match[1];
-            amount = match[2];
-          }
         }
       }
 

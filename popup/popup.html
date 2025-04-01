@@ -10,22 +10,32 @@
 
   <div class="status-filters">
     <h2>Include orders with status:</h2>
-    <label>
-      <input type="checkbox" name="status" value="Awaiting delivery" checked>
-      Awaiting delivery
-    </label>
-    <label>
-      <input type="checkbox" name="status" value="Completed" checked>
-      Completed
-    </label>
-    <label>
-      <input type="checkbox" name="status" value="Canceled">
-      Canceled
-    </label>
-    <label>
-      <input type="checkbox" name="status" value="Expired">
-      Expired
-    </label>
+    <div class="status-columns">
+      <div class="status-column">
+        <label>
+          <input type="checkbox" name="status" value="Awaiting delivery" checked>
+          Awaiting delivery
+        </label>
+        <label>
+          <input type="checkbox" name="status" value="Completed" checked>
+          Completed
+        </label>
+        <label>
+          <input type="checkbox" name="status" value="To ship" checked>
+          To ship
+        </label>
+      </div>
+      <div class="status-column">
+        <label>
+          <input type="checkbox" name="status" value="Canceled">
+          Canceled
+        </label>
+        <label>
+          <input type="checkbox" name="status" value="Expired">
+          Expired
+        </label>
+      </div>
+    </div>
   </div>
 
   <div class="export-format">

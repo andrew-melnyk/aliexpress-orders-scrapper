@@ -7,10 +7,8 @@ document.addEventListener('DOMContentLoaded', () => {
     try {
       // Get selected statuses
       const statusCheckboxes = document.querySelectorAll('input[name="status"]:checked');
-      console.log('Found status checkboxes:', statusCheckboxes);
       
       const selectedStatuses = Array.from(statusCheckboxes).map(checkbox => checkbox.value);
-      console.log('Selected statuses:', selectedStatuses);
 
       if (selectedStatuses.length === 0) {
         throw new Error('Please select at least one status to export');
@@ -18,7 +16,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
       // Get the active tab
       const [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
-      console.log('Active tab:', tab);
 
       if (!tab) {
         throw new Error('No active tab found');
@@ -37,13 +34,11 @@ document.addEventListener('DOMContentLoaded', () => {
       errorElement.style.display = 'none';
 
       // Send message to content script with selected statuses and format
-      console.log('Sending message to content script with statuses:', selectedStatuses);
       const response = await chrome.tabs.sendMessage(tab.id, { 
         action: 'exportOrders',
         selectedStatuses: selectedStatuses,
         format: exportFormat.value
       });
-      console.log('Response from content script:', response);
 
       if (!response || !response.success) {
         throw new Error(response?.error || 'Failed to export orders');
