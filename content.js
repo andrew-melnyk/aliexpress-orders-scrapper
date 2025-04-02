@@ -237,7 +237,7 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
   if (message.action === 'exportOrders') {
     
     // Update selected statuses before collecting orders
-    exporter.setSelectedStatuses(message.selectedStatuses || ['Awaiting delivery', 'Completed']);
+    exporter.setSelectedStatuses(message.selectedStatuses || ['Awaiting delivery', 'Completed', 'To Ship']);
     
     exporter.collectOrders()
       .then(orders => {
